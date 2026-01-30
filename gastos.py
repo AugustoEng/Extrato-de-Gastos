@@ -35,11 +35,11 @@ while True:
         valorTotal = 0
         for char in conteudo: #* Cada iteração pega um elemento da lista de conteúdo AKA cada linha do .txt
             casa = char.split(";") #* Cria uma sub lista, casa, que a cada ";" cria um novo elemento
-            print(f"{casa[0]} -- {float(casa[1])}")
+            print(f"{casa[0]} -- R${float(casa[1])}")
             valorLocal = float(casa[1]) #* Transforma o segundo elemento de casa (o preço) em float
             valorTotal += valorLocal
 
-        print(f"\nValor Total: {float(valorTotal)}")
+        print(f"\nValor Total: R${float(valorTotal)}")
         confirmar()
 
     #? ADICIONAR GASTO
@@ -74,8 +74,9 @@ while True:
         resposta = int(input("\nQual deseja excluir? ")) - 1
 
         exclusao = conteudo.pop(resposta)
+        nome_exc = exclusao.split(";")
         limpar()
-        print(f"{exclusao} excluído com sucesso")
+        print(f"{nome_exc[0].strip()} excluído com sucesso")
         confirmar()
 
         with open("extrato.txt", "w") as extrato:
